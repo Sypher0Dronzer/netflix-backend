@@ -28,6 +28,7 @@ const mongoStore = MongoStore.create({
 
 app.use(cors({
   origin: "https://heartfelt-squirrel-30987d.netlify.app",
+  methods:["POST","GET"],
   credentials: true,
 }));
 
