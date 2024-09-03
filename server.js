@@ -1,5 +1,5 @@
 import express from "express";
-
+import cors from "cors";
 import { ENV_VARS } from "./config/envVars.js";
 import connectDB from "./config/connectionDb.js";
 import passport from "passport";
@@ -24,6 +24,13 @@ const mongoStore = MongoStore.create({
   mongoUrl: ENV_VARS.MONGO_URI, // Use the same database name
   collectionName: "sessions", // Optional: Customize session collection name
 });
+
+
+app.use(cors({
+  origin: "https://heartfelt-squirrel-30987d.netlify.app",
+  credentials: true,
+}));
+
 
 // middlewares
 app.use(bodyParser.urlencoded({ extended: true }));
