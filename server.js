@@ -40,6 +40,7 @@ app.use(
   session({
     secret: "secret",
     resave: false,
+    proxy:true,
     saveUninitialized: false,
     store: mongoStore, // Use MongoDB store
     cookie: {
