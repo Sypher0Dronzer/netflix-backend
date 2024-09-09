@@ -31,6 +31,7 @@ const mongoStore = MongoStore.create({
 //   methods:["POST","GET"],
 //   credentials: true,
 // }));
+app.use(cors())
 
 
 // middlewares
