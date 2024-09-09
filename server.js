@@ -26,12 +26,12 @@ const mongoStore = MongoStore.create({
 });
 
 
-// app.use(cors({
-//   origin: "https://heartfelt-squirrel-30987d.netlify.app",
-//   methods:["POST","GET"],
-//   credentials: true,
-// }));
-app.use(cors())
+app.use(cors({
+  origin: "https://heartfelt-squirrel-30987d.netlify.app",
+  methods:["POST","GET"],
+  credentials: true,
+}));
+// app.use(cors())
 
 
 // middlewares
@@ -41,7 +41,6 @@ app.use(
   session({
     secret: "secret",
     resave: false,
-    proxy:true,
     saveUninitialized: false,
     store: mongoStore, // Use MongoDB store
     cookie: {
