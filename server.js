@@ -52,7 +52,7 @@ app.use(
     saveUninitialized: false,
     store: mongoStore, // Use MongoDB store
     cookie: {
-      secure: false, // Set to `true` if using HTTPS
+      secure: true, // Set to `true` if using HTTPS
       httpOnly: false,
       maxAge: 7 * 24 * 60 * 60 * 1000, // 1 day
       sameSite: "None",
