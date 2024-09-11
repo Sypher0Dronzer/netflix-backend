@@ -25,7 +25,7 @@ const mongoStore = MongoStore.create({
   collectionName: "sessions", // Optional: Customize session collection name
 });
 
-
+app.set('trust proxy',1)
 app.use(cors({
   origin: "https://heartfelt-squirrel-30987d.netlify.app",
   methods:["POST","GET"],
@@ -44,6 +44,7 @@ app.use((req, res, next) => {
   res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
   next();
 });
+
 app.use(
   session({
     secret: "secret",
