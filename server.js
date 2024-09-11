@@ -37,6 +37,13 @@ app.use(cors({
 // middlewares
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "https://heartfelt-squirrel-30987d.netlify.app");
+  res.header("Access-Control-Allow-Credentials", "true");
+  res.header("Access-Control-Allow-Methods", "GET, POST");
+  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  next();
+});
 app.use(
   session({
     secret: "secret",
@@ -44,7 +51,7 @@ app.use(
     saveUninitialized: false,
     store: mongoStore, // Use MongoDB store
     cookie: {
-      secure: false, // Set to `true` if using HTTPS
+      secure: true, // Set to `true` if using HTTPS
       httpOnly: false,
       maxAge: 7 * 24 * 60 * 60 * 1000, // 1 day
       sameSite: "None",
