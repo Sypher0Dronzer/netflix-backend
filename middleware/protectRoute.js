@@ -1,6 +1,5 @@
 export async function protectRoute(req,res,next) {
-    console.log("Session:", req.session);
-    console.log("isAuthenticated:", req.isAuthenticated());
+    
     if(req.isAuthenticated() )
         return next()
     else 

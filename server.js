@@ -25,6 +25,7 @@ const mongoStore = MongoStore.create({
   collectionName: "sessions", // Optional: Customize session collection name
 });
 
+// this following line solved the error I was facing
 app.set('trust proxy',1)
 app.use(cors({
   origin: "https://heartfelt-squirrel-30987d.netlify.app",
@@ -37,6 +38,7 @@ app.use(cors({
 // middlewares
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+// I am not sure if the following helped
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "https://heartfelt-squirrel-30987d.netlify.app");
   res.header("Access-Control-Allow-Credentials", "true");
